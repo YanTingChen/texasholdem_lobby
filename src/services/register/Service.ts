@@ -17,8 +17,7 @@ export default class RegisterServer extends BaseService {
         if (verify === 0) {
             throw new Exceptions(8002, 'verification fail');
         }
-        const geo = geoip.lookup('118.163.216.85');
-        // const geo = geoip.lookup(ip);
+        const geo = geoip.lookup(ip);
         const location = geo.country;
         const res = await this.repository.register(account, password, platform, device, ip, browser, location);
         if (res !== 1) {

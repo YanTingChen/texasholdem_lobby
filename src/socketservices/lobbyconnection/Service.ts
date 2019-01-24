@@ -18,8 +18,7 @@ export default class LobbyConnectionServer extends BaseService {
 
     public async login(no: number, ip: string, device: string,
         browser: string, platform: string): Promise<any> {
-        const geo = geoip.lookup('118.163.216.85');
-        // const geo = geoip.lookup(ip);
+        const geo = geoip.lookup(ip);
         const location = geo.country;
         const res = await this.repository.login(no, ip, device, browser, location, platform);
         if (res.s) {

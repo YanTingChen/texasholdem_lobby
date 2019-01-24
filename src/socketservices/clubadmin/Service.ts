@@ -13,8 +13,7 @@ export default class ClubAdminServer extends BaseService {
         super();
     }
     public async createClub(data: any, ip: any): Promise<any> {
-        const geo = geoip.lookup('118.163.216.85');
-        // const geo = geoip.lookup(ip);
+        const geo = geoip.lookup(ip);
         const location = geo.country;
         const res = await this.repository.createClub(data.no, location, ip);
         if (res.s) {

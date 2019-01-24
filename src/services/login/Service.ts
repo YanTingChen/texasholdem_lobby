@@ -17,8 +17,7 @@ export default class Service extends BaseService {
         @inject('LoginRepository') private repository: Repository) { super(); }
 
     public async normalLoginCheck(account, password, ip, platform, device, browser): Promise<any> {
-        const geo = geoip.lookup('118.163.216.85');
-        // const geo = geoip.lookup(ip);
+        const geo = geoip.lookup(ip);
         const location = geo.country;
         const res = await this.repository.normalLoginToLobby(account, password, platform, device,
             ip, browser, location);
@@ -51,8 +50,7 @@ export default class Service extends BaseService {
     }
 
     public async visitorLoginCheck(ip, platform, device, browser): Promise<any> {
-        const geo = geoip.lookup('118.163.216.85');
-        // const geo = geoip.lookup(ip);
+        const geo = geoip.lookup(ip);
         const location = geo.country;
         const res = await this.repository.visitorLoginToLobby(platform, device, ip, browser, location);
         const time = await this.repository.getDBCurrentTime();
@@ -72,8 +70,7 @@ export default class Service extends BaseService {
     }
 
     public async quickLoginCheck(no, ip, platform, device, browser): Promise<any> {
-        const geo = geoip.lookup('118.163.216.85');
-        // const geo = geoip.lookup(ip);
+        const geo = geoip.lookup(ip);
         const location = geo.country;
         const res = await this.repository.quickLoginToLobby(no, ip, platform, device, browser, location);
         const time = await this.repository.getDBCurrentTime();
