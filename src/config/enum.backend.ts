@@ -1,0 +1,6 @@
+export enum Backend {
+    LINK = '',
+    TEXASHOLDEM_GAME_CONFLICT_LINK = '127.0.0.1:3100/conflict',
+    TEXASHOLDEM_GAME_LEAVEDESK_LINK = '127.0.0.1:3100/leavedesk'
+    // TEXASHOLDEM_GAME_LEAVEDESK_LINK = '192.168.30.118:3100/leavedesk'
+}

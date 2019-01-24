@@ -1,0 +1,211 @@
+paths:
+  '/login/normal':
+    post:
+      tags:
+        - login
+      summary: login
+      description: login
+      deprecated: false
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            required:
+              - reqData
+            properties:
+              reqData:
+                type: object
+                required:
+                  - searchFilter
+                properties:
+                  account:
+                    description: '玩家帳號'
+                    type: string
+                    default: 'mobile04@gmail.com'
+                    example: 'mobile04@gmail.com'
+                  password:
+                    description: '玩家密碼'
+                    type: string
+                    default: 'Qov/kltuul2pt5n/ncyNbg=='
+                    example: 'Qov/kltuul2pt5n/ncyNbg=='
+                  platform:
+                    description: '平台'
+                    type: string
+                    default: 'IOS'
+                    example: 'IOS'
+                  device:
+                    description: '裝置'
+                    type: string
+                    default: 'iphone 8'
+                    example: 'iphone X'
+                  browser:
+                    description: '瀏覽器'
+                    type: string
+                    default: ''
+                    example: 'CHROME'
+      responses:
+        '200':
+          description: OK
+          schema:
+            required:
+              - status
+              - result
+            properties:
+              status:
+                type: integer
+                format: int32 
+                enum:
+                  - 1
+                  - 8001
+                default: 1
+                example: 1
+              result:
+                properties:
+                    account:
+                      type: string
+                      example: 'tom_chen@arcadiatw.com'
+                      default: 'tom_chen@arcadiatw.com'
+                    key:
+                      type: string
+                      example: '{member:barrel}:hash:1'
+                      default: '{member:barrel}:hash:1'
+                    token:
+                      type: string
+                      example: '7c4a8d09ca3762af61e59520943dc26494f8941b'
+                      default: '7c4a8d09ca3762af61e59520943dc26494f8941b'
+  '/login/quick':
+    post:
+      tags:
+        - login
+      summary: login
+      description: login
+      deprecated: false
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            required:
+              - reqData
+            properties:
+              reqData:
+                type: object
+                required:
+                  - searchFilter
+                properties:
+                  token:
+                    description: 'token'
+                    type: string
+                    default: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVBRERGMUVCRUExOUU4OEIwNzE2NkYzMUZERTk1MDU0IiwibGFzdExvZ2luVGltZSI6IjIwMTgtMTItMjdUMDI6NTQ6MDcuMDAwWiIsImlhdCI6MTU0NTg3OTI0OCwiZXhwIjo3ODU3Mzk5MjQ4fQ.i_Y3AjIq4aomqb9rgOsLB-2sRvnq8-HDEl_TzpdTFxA'
+                    example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVBRERGMUVCRUExOUU4OEIwNzE2NkYzMUZERTk1MDU0IiwibGFzdExvZ2luVGltZSI6IjIwMTgtMTItMjdUMDI6NTQ6MDcuMDAwWiIsImlhdCI6MTU0NTg3OTI0OCwiZXhwIjo3ODU3Mzk5MjQ4fQ.i_Y3AjIq4aomqb9rgOsLB-2sRvnq8-HDEl_TzpdTFxA'
+                  platform:
+                    description: '平台'
+                    type: string
+                    default: 'IOS'
+                    example: 'IOS'
+                  device:
+                    description: '裝置'
+                    type: string
+                    default: 'iphone 8'
+                    example: 'iphone X'
+                  browser:
+                    description: '瀏覽器'
+                    type: string
+                    default: ''
+                    example: 'CHROME'
+      responses:
+        '200':
+          description: OK
+          schema:
+            required:
+              - status
+              - result
+            properties:
+              status:
+                type: integer
+                format: int32 
+                enum:
+                  - 1
+                  - 8001
+                default: 1
+                example: 1
+              result:
+                required:
+                  - msssage
+                properties:
+                    token:
+                      type: string
+                      example: 'success'
+                      default: 'null'
+  '/login/visitor':
+    post:
+      tags:
+        - login
+      summary: login
+      description: login
+      deprecated: false
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            required:
+              - reqData
+            properties:
+              reqData:
+                type: object
+                required:
+                  - searchFilter
+                properties:
+                  platform:
+                    description: '平台'
+                    type: string
+                    default: 'IOS'
+                    example: 'IOS'
+                  device:
+                    description: '裝置'
+                    type: string
+                    default: 'iphone 8'
+                    example: 'iphone X'
+      responses:
+        '200':
+          description: OK
+          schema:
+            required:
+              - status
+              - result
+            properties:
+              status:
+                type: integer
+                format: int32 
+                enum:
+                  - 1
+                  - 8001
+                default: 1
+                example: 1
+              result:
+                properties:
+                    id:
+                      type: number
+                      example: '1'
+                      default: 'null'
+                    nickname:
+                      type: string
+                      example: 'guest'
+                      default: 'guest'
+                    realname:
+                      type: string
+                      example: 'guest'
+                      default: 'guest'
+                    diamond:
+                      type: number
+                      example: '500'
+                      default: 'null'
+                    chip:
+                      type: number
+                      example: '20000'
+                      default: 'null'
